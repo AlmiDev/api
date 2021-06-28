@@ -1,8 +1,4 @@
 const axios = require('axios');
-const dotenv =require('dotenv')
-dotenv.config();
-const ACCOUNT_SID = process.env.ACCOUNT_SID;
-const AUTH_TOKEN = process.env.AUTH_TOKEN;
 module.exports = (_config) => {
 
     config = _config
@@ -15,7 +11,7 @@ let Messages = class {
     
     static getAllMessage(number) {
 
-/*
+
         var data 
         
         var configTwilio = {
@@ -28,19 +24,10 @@ let Messages = class {
           },
           data : data
         };
-        */
         console.log('in the calsss with number '+ number)
         return new Promise((next) => {
 
-                //axios(configTwilio)
-                axios.get(
-                  'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?PageSize=2000',
-                  {
-                      auth: {
-                          username: ACCOUNT_SID,
-                          password: AUTH_TOKEN
-                      }
-                  })
+                axios(configTwilio)
                     .then ((response) => {
                       console.log(typeof(response.data.messages))
                       var list = response.data.messages

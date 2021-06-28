@@ -1,14 +1,14 @@
 const express = require('express');
+const dotenv =require('dotenv')
 const morgan = require('morgan')('dev');
 const config = require('./assets/config.json');
 const axios = require('axios');
 const twilio = require('twilio');
-const qs = require('qs');
-const {success, error, checkAndChange} = require('./assets/functionsAPI');
-const app = express()
+const {success, error, checkAndChange, formatNumber} = require('./assets/functionsAPI');
+const app = express();
+dotenv.config();
 
-console.log ('toto')
-   
+const PORT = process.env.PORT;
     
 let MessageRouter = express.Router()
 
@@ -20,23 +20,12 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
     MessageRouter.route('/')
 
         .get( async(req,res) => {
-            console.log('call class with number '+req.body.number)
-            //console.log('call class with number'+req.params.number)
-
-            let listMessage = await Messages.getAllMessage(req.body.number)
-
-            //console.log(listMessage[0].body)
-            console.log ('end of class CALL')
-            console.log(typeof(listMessage))
+            let listMessage = await Messages.getAllMessage(formatNumber(req.body.number))
             res.json(checkAndChange(listMessage))
-
         })
-
     app.use(config.routeAPI+'messages', MessageRouter)
 
 
-    
-
 //creation du serveur
-app.listen (config.port, () => console.log ('Started apiMedylio on port '+config.port))
+app.listen (PORT, () => console.log ('Started apiMedylio v2 on port '+PORT))
 
