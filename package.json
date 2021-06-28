@@ -1,0 +1,22 @@
+{
+  "name": "api_medylio_get_message",
+  "version": "1.1.0",
+  "description": "API Medylio",
+  "main": "getMessage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node getMessage2.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "env-cmd": "^10.1.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "qs": "^6.10.1",
+    "twilio": "^3.64.0"
+  }
+}
