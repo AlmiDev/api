@@ -5,7 +5,7 @@
   "main": "getMessage.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node getMessage2.js"
+    "start": "node getMessage.js"
   },
   "keywords": [],
   "author": "",
