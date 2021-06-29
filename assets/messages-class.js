@@ -46,7 +46,8 @@ let Messages = class {
                               return new Date(b.date_updated) - new Date(a.date_updated);
                             });
               
-                            next (listMessage.reverse())
+                            next(listMessage)
+                            //next (listMessage.reverse())
 
                         }).catch(function (error) {
                           console.log(error);
