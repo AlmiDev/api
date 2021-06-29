@@ -12,7 +12,7 @@ console.log ('toto')
     
 let MessageRouter = express.Router()
 
-let Messages = require ('./assets/messages-class')(config)
+let Messages = require ('./assets/messages-classv0')(config)
 
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded

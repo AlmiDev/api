@@ -25,6 +25,6 @@ exports.checkAndChange =(obj) => {
     }
 }
 
-exports.formatNumber =(number) => {
+exports.formatNumber = (number) => {
     return '%2B'+number.slice(1)
 }

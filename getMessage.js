@@ -17,10 +17,10 @@ let Messages = require ('./assets/messages-class')(config)
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
     
-    MessageRouter.route('/')
+    MessageRouter.route('/:number')
 
         .get( async(req,res) => {
-            let listMessage = await Messages.getAllMessage(formatNumber(req.body.number))
+            let listMessage = await Messages.getAllMessage(formatNumber(req.params.number))
             res.json(checkAndChange(listMessage))
         })
     app.use(config.routeAPI+'messages', MessageRouter)
