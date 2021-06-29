@@ -17,15 +17,18 @@ let Messages = require ('./assets/messages-class')(config)
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
     
-    MessageRouter.route('/')
+    MessageRouter.route('/:number')
 
         .get( async(req,res) => {
-            let listMessage = await Messages.getAllMessage(formatNumber(req.query.number))
+            console.log('in call')
+            console.log(req.params.number)
+            console.log('--------')
+            let listMessage = await Messages.getAllMessage(formatNumber(req.params.number))
             res.json(checkAndChange(listMessage))
         })
     app.use(config.routeAPI+'messages', MessageRouter)
 
 
 //creation du serveur
-app.listen (PORT, () => console.log ('Started apiMedylio v1.0.2 on port '+PORT))
+app.listen (PORT, () => console.log ('Started apiMedylio v1.0.1 on port '+PORT))
 

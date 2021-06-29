@@ -19,7 +19,8 @@ let Messages = class {
         return new Promise((next) => {
 
                 axios.get(
-                  'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?PageSize=5&From='+number,
+                  'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?From='+number,
+                  //'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?PageSize=5&From='+number, //with pageSize definition
                   {
                       auth: {
                           username: ACCOUNT_SID,
@@ -30,7 +31,8 @@ let Messages = class {
                       fromMessage=response.data.messages 
 
                       axios.get(
-                        'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?PageSize=5&To='+number,
+                        'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?To='+number,
+                        //'https://api.twilio.com/2010-04-01/Accounts/'+ACCOUNT_SID+'/Messages.json?PageSize=5&To='+number, //with pageSize definition
                         {
                             auth: {
                                 username: ACCOUNT_SID,
